@@ -24,11 +24,7 @@
 						newPassword: "123456.77"
 					}),
 					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						'Accept': 'application/json, text/plain, */*',
-						'X-DevTools-Emulate-Network-Conditions-Client-Id': '80CCB1E0-AD19-4783-917D-441C177B8A1F',
-						'Accept-Language': 'zh-CN,en-US;q=0.8',
-						'X-Requested-With': 'com.ionicframework.jssvc290501'
+						'Content-Type': 'application/x-www-form-urlencoded'
 					}
 				}).success(function(response) {
 					q.resolve(response);
