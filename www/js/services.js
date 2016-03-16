@@ -1,7 +1,7 @@
 (function() {
 	var ServModule = angular.module('starter.services', []);
-	ServModule.factory('HttpServ', ['$http', '$q','PopupServ',
-		function($http, $q,PopupServ) {
+	ServModule.factory('HttpServ', ['$http', '$q', 'PopupServ',
+		function($http, $q, PopupServ) {
 
 			var service = {
 				Login: Login,
@@ -18,13 +18,17 @@
 					method: 'POST',
 					url: 'http://192.168.1.105:3305/index.php',
 					data: $.param({
-						query:0,
-						userID:"146309125",
-						userPassword:"123456.77",
-						newPassword:"123456.77"
+						query: 0,
+						userID: "146309125",
+						userPassword: "123456.77",
+						newPassword: "123456.77"
 					}),
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded',
+						'Accept': 'application/json, text/plain, */*',
+						'X-DevTools-Emulate-Network-Conditions-Client-Id': '80CCB1E0-AD19-4783-917D-441C177B8A1F',
+						'Accept-Language': 'zh-CN,en-US;q=0.8',
+						'X-Requested-With': 'com.ionicframework.jssvc290501'
 					}
 				}).success(function(response) {
 					q.resolve(response);
@@ -37,19 +41,19 @@
 
 			/*登录*/
 			function Login() {
+
+			};
+			/*个人信息*/
+			function Grxx() {
 				var q = $q.defer();
 				var str = "?__VIEWSTATE=dDwyOTIzOTAzMDY7Oz701B5ima43iVSTgVtHyF4XgQER9g==&__VIEWSTATEGENERATOR=92719903&";
 				var strPost = "TextBox1=146309125&TextBox2=123456.77&RadioButtonList1=学生&Button1=";
 				Post(str + strPost).then(function(data) {
 					q.resolve(data);
 				}, function(error) {
-					PopupServ.Alert("登录错误",error);
+					PopupServ.Alert("登录错误", error);
 				})
 				return q.promise;
-			};
-			/*个人信息*/
-			function Grxx() {
-
 			};
 			/*密码修改*/
 			function Mmxg() {
@@ -58,7 +62,7 @@
 		}
 
 	]);
-	ServModule.factory('PopupServ', ['$ionicPopup','$q',
+	ServModule.factory('PopupServ', ['$ionicPopup', '$q',
 		function($ionicPopup, $q) {
 
 			var service = {
@@ -73,20 +77,20 @@
 				var alertPopup = $ionicPopup.alert({
 					title: title,
 					template: template,
-					okText:"确认"
+					okText: "确认"
 				});
 				alertPopup.then(function(res) {
 
 				});
 			};
 
-			function Confirm(title,template) {
-				var q =$q.defer();
+			function Confirm(title, template) {
+				var q = $q.defer();
 				var confirmPopup = $ionicPopup.confirm({
 					title: title,
 					template: template,
-					okText:"确认",
-					cancelText:"取消"
+					okText: "确认",
+					cancelText: "取消"
 				});
 				confirmPopup.then(function(res) {
 					if (res) {
