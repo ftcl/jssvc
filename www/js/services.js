@@ -16,8 +16,13 @@
 				var q = $q.defer();
 				$http({
 					method: 'POST',
-					url: 'http://jw.jssvc.edu.cn/default2.aspx',
-					data: postdata,
+					url: 'http://192.168.1.105:3305/index.php',
+					data: $.param({
+						query:0,
+						userID:"146309125",
+						userPassword:"123456.77",
+						newPassword:"123456.77"
+					}),
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded',
 					}
