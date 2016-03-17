@@ -18,7 +18,7 @@
 					method: 'POST',
 					url: 'http://192.168.1.105:3305/index.php',
 					data: $.param({
-						query: 0,
+						query: postdata,
 						userID: "146309125",
 						userPassword: "123456.77",
 						newPassword: "123456.77"
